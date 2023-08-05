@@ -42,12 +42,14 @@ class TestCaseMubu(HttpRunner):
             .with_json(
                 {"phone": "$phone", "password": "$password", "callbackType": "$callbackType"}
             )
+            .teardown_hook("${get_response($response)}", "phone")
             .extract()
             # .with_jmespath("body.data.token", "jwt-token")
             .with_jmespath('cookies."Jwt-Token"', "jwt_token")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
+            .assert_equal("$phone", 18245297665)
         ),
         Step(
             RunRequest("/v3/api/user/profile")

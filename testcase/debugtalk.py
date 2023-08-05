@@ -1,6 +1,7 @@
 import os
 import uuid
 from httprunner import __version__
+from httprunner.response import ResponseObject
 
 
 def gen_random_request_id():
@@ -16,3 +17,10 @@ def get_test_env():
         return "mubu.net"
     else:
         return "mubu.com"
+
+
+def get_response(resp:ResponseObject):
+    print(f"resp______")
+    resp = resp.resp_obj.json()
+    print(resp["data"])
+    return resp["data"]["phone"]
