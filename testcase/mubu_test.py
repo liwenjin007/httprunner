@@ -5,22 +5,24 @@ from httprunner import HttpRunner, Config, Step, RunRequest
 
 class TestCaseMubu(HttpRunner):
 
-    config = Config("testcase description")
+    config = Config("testcase description").verify(False).variables(**{
+        "data_unique_id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    })
 
     teststeps = [
         Step(
             RunRequest("/v3/api/user/phone_login")
-            .post("https://api2.mubu.com/v3/api/user/phone_login")
-            .with_headers(
+                .post("https://api2.mubu.com/v3/api/user/phone_login")
+                .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "version": "3.0.0-2.0.0.1934",
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDQwNDksImlhdCI6MTY5MTIxMjA0OX0.JcwAqIV9l1-9gazjGa0Tz0v6JITcR0gfd8Yw6ABu3MF1-G92Hb5wOxq41upa8AVgWxCTy7o_nI_6Zo29kc6Nvw",
-                    "x-request-id": "63ec7e4a-00a4-4543-b74b-3ebba5c87fe7",
+                    "jwt-token": "",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -30,260 +32,9 @@ class TestCaseMubu(HttpRunner):
             .with_json(
                 {"phone": "18245297665", "password": "123456lwj", "callbackType": 0}
             )
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/app")
-            .get("https://mubu.com/app")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "sec-fetch-site": "same-origin",
-                    "sec-fetch-mode": "navigate",
-                    "sec-fetch-user": "?1",
-                    "sec-fetch-dest": "document",
-                }
-            )
-            .validate()
-            .assert_equal("status_code", 200)
-        ),
-        Step(
-            RunRequest("/v3/api/user/profile")
-            .post("https://api2.mubu.com/v3/api/user/profile")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "8ade82b2-2cc7-4074-b5c2-fbc4c2d667cf",
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_data("")
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/activity/five_years/participation")
-            .post("https://api2.mubu.com/v3/api/activity/five_years/participation")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "776562ea-6901-4f78-86d3-25e236c3e554",
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_data("")
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 4011)
-            .assert_equal("body.msg", "unknown error")
-        ),
-        Step(
-            RunRequest("/v3/api/list/star_relation/get")
-            .get("https://api2.mubu.com/v3/api/list/star_relation/get")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "bdd8ff50-ada5-4c93-9535-e2cc02f97987",
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/list/get_all_documents_page")
-            .post("https://api2.mubu.com/v3/api/list/get_all_documents_page")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "4d3e6289-b18a-4c1d-b070-716d1ae1b39e",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"start": ""})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/user/get_user_params")
-            .post("https://api2.mubu.com/v3/api/user/get_user_params")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "edff795a-e61c-4983-a77d-c2048d5ce6f0",
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_data("")
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/user/get_onboard_state")
-            .post("https://api2.mubu.com/v3/api/user/get_onboard_state")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "f1fb1511-f3fb-4d41-947a-5b064b63c392",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/message/get_message_unread")
-            .post("https://api2.mubu.com/v3/api/message/get_message_unread")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "dc2e5f49-6337-4f6e-9bc3-a74a3178ab83",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"page": 1})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/advertisement/get")
-            .post("https://api2.mubu.com/v3/api/advertisement/get")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "fa770e08-73ea-408b-9327-515dba9be78b",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"type": 1})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/list/item_count")
-            .post("https://api2.mubu.com/v3/api/list/item_count")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "5ca3dd45-0392-4816-9087-35ea8ed4062b",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"folderId": 0, "source": "home"})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/notify/new_tip/get")
-            .post("https://api2.mubu.com/v3/api/notify/new_tip/get")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "c111bfae-2131-4f0c-9ca3-1cac94983fe6",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"type": 1})
+            .extract()
+            # .with_jmespath("body.data.token", "jwt-token")
+            .with_jmespath('cookies."Jwt-Token"', "jwt_token")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -296,11 +47,11 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "version": "3.0.0-2.0.0.1934",
                     "sec-ch-ua-mobile": "?0",
+                    "data-unique-id": "$data_unique_id",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "64f48213-0d9f-4611-9a21-3f9332949f9d",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -308,30 +59,8 @@ class TestCaseMubu(HttpRunner):
                 }
             )
             .with_json({"name": "hogwarts-demo", "folderId": "0"})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/notify/new_tip/get")
-            .post("https://api2.mubu.com/v3/api/notify/new_tip/get")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "7dd73e10-88ac-4ca9-8f60-d412d9aea0ea",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"type": 1})
+            .extract()
+            .with_jmespath("body.data.folder.id", "folderId")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -344,18 +73,18 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "version": "3.0.0-2.0.0.1934",
                     "sec-ch-ua-mobile": "?0",
+                    "data-unique-id": "$data_unique_id",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "f19b9cd1-599c-474c-8f9e-1180a7012e85",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"folderId": "qTCe1qAiyw", "source": "home"})
+            .with_json({"folderId": "$folderId", "source": "home"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -368,42 +97,20 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "version": "3.0.0-2.0.0.1934",
                     "sec-ch-ua-mobile": "?0",
+                    "data-unique-id": "$data_unique_id",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "f76ebbbd-a49d-441c-bd03-d4949a2da21b",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"folderId": "qTCe1qAiyw", "type": 0})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/list/item_count")
-            .post("https://api2.mubu.com/v3/api/list/item_count")
-            .with_headers(
-                **{
-                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
-                    "version": "3.0.0-2.0.0.1934",
-                    "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "b30c0577-51d2-4e43-9ad4-1d765edcb716",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-site": "same-site",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-dest": "empty",
-                }
-            )
-            .with_json({"folderId": 0, "source": "home"})
+            .with_json({"folderId": "$folderId", "type": 0})
+            .extract()
+            .with_jmespath("body.data.id", "documentId")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -416,18 +123,18 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "version": "3.0.0-2.0.0.1934",
                     "sec-ch-ua-mobile": "?0",
+                    "data-unique-id": "$data_unique_id",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "f5905718-1a37-4ae4-8d9c-ec4cba6fde31",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"docId": "4W500-RbPyw", "password": ""})
+            .with_json({"docId": "$documentId", "password": ""})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -440,9 +147,9 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "cc04ca8d-cff7-4358-852d-52f22ebf1299",
+                    "data-unique-id": "$data_unique_id",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -461,10 +168,10 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "0fc33d1a-5e96-4d00-9e84-94e9f22300e2",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -476,7 +183,7 @@ class TestCaseMubu(HttpRunner):
                     "reqId": "1",
                     "type": "USER_HEARTBEAT",
                     "memberId": "4441534322996672",
-                    "documentId": "4W500-RbPyw",
+                    "documentId": "$documentId",
                 }
             )
             .validate()
@@ -491,17 +198,17 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "2e0fb425-0c63-4d32-b684-8fbf4f4f65e1",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"targetDocId": "4W500-RbPyw"})
+            .with_json({"targetDocId": "$documentId"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -515,17 +222,17 @@ class TestCaseMubu(HttpRunner):
                     "version": "3.0.0-2.0.0.1934",
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "6d023488-ecb0-471f-af24-638882a718ed",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"targetDocId": "4W500-RbPyw"})
+            .with_json({"targetDocId": "$documentId"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -538,18 +245,18 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+                    "jwt-token": "$jwt_token",
                     "request-id": "members:4441534322996672:1691213839731",
-                    "x-request-id": "96e68bdc-ad69-4b89-b743-c9f0b29e9ace",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"memberId": "4441534322996672", "documentId": "4W500-RbPyw"})
+            .with_json({"memberId": "4441534322996672", "documentId": "$documentId"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -562,10 +269,10 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "10d08a66-54c1-47ef-aa2f-dab852ca7472",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -577,7 +284,7 @@ class TestCaseMubu(HttpRunner):
                     "memberId": "4441534322996672",
                     "type": "CHANGE",
                     "version": 0,
-                    "documentId": "4W500-RbPyw",
+                    "documentId": "$documentId",
                     "events": [
                         {"name": "nameChanged", "title": "d", "original": ""},
                         {"name": "nameChanged", "title": "de", "original": "d"},
@@ -598,17 +305,17 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "957a06ed-3feb-4fa6-9f0c-d7cda6a01e77",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"docId": "4W500-RbPyw", "keywords": "demo", "option": 1})
+            .with_json({"docId": "$documentId", "keywords": "demo", "option": 1})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -621,10 +328,10 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "c1139d7a-3b76-4af8-96ee-1c368230a3b3",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -636,7 +343,7 @@ class TestCaseMubu(HttpRunner):
                     "memberId": "4441534322996672",
                     "type": "CHANGE",
                     "version": 1,
-                    "documentId": "4W500-RbPyw",
+                    "documentId": "$documentId",
                     "events": [
                         {
                             "name": "create",
@@ -669,10 +376,10 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "0db8d761-ad23-4d01-9122-4c2e21f92901",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -684,7 +391,7 @@ class TestCaseMubu(HttpRunner):
                     "memberId": "4441534322996672",
                     "type": "CHANGE",
                     "version": 2,
-                    "documentId": "4W500-RbPyw",
+                    "documentId": "$documentId",
                     "events": [
                         {
                             "name": "update",
@@ -719,10 +426,10 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "5c665a47-299a-4941-9c17-7833a54f521f",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -734,7 +441,7 @@ class TestCaseMubu(HttpRunner):
                     "memberId": "4441534322996672",
                     "type": "CHANGE",
                     "version": 3,
-                    "documentId": "4W500-RbPyw",
+                    "documentId": "$documentId",
                     "events": [
                         {
                             "name": "update",
@@ -769,10 +476,10 @@ class TestCaseMubu(HttpRunner):
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
                     "sec-ch-ua-mobile": "?0",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
-                    "x-request-id": "86a59326-da75-41b9-9143-933e5bb3e415",
+                    "jwt-token": "$jwt_token",
+                    "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
@@ -784,7 +491,7 @@ class TestCaseMubu(HttpRunner):
                     "memberId": "4441534322996672",
                     "type": "CHANGE",
                     "version": 4,
-                    "documentId": "4W500-RbPyw",
+                    "documentId": "$documentId",
                     "events": [
                         {
                             "name": "update",

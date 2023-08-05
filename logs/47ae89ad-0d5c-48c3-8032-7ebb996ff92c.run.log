@@ -1,0 +1,853 @@
+2023-08-05 14:22:47.248 | INFO | run step begin: /v3/api/list/create_folder >>>>>>
+2023-08-05 14:22:47.250 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/list/create_folder
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "64f48213-0d9f-4611-9a21-3f9332949f9d",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567249"
+}
+json: {
+    "name": "hogwarts-demo",
+    "folderId": "0"
+}
+
+2023-08-05 14:22:47.468 | DEBUG | client IP: 10.99.54.172, Port: 57577
+2023-08-05 14:22:47.468 | DEBUG | server IP: 61.170.79.237, Port: 443
+2023-08-05 14:22:47.468 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/list/create_folder
+headers  : {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "64f48213-0d9f-4611-9a21-3f9332949f9d",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567249",
+    "Content-Length": "42"
+}
+cookies  : {}
+body     : {
+    "name": "hogwarts-demo",
+    "folderId": "0"
+}
+
+2023-08-05 14:22:47.473 | DEBUG | 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9454",
+    "X-Tt-Logid": "202308051422463917B994211C488DEA51",
+    "X-Agw-Info": "FgeRFO_k5aiKyYE3u-qE_RxvuNFic2qyhbjPsMzo5qK-JViRrQpVgCadYQv8yyVi8TlBvhAv7EJyx51r8UBM5FNqu98GdorHIuNUy-urgtryNiRkcfdGPPZsCPKYieJxZfSY35MZm0zsScSvIDs-vty9IBoQYTBBSzqf",
+    "Server-Timing": "inner; dur=22, tt_agw; dur=19, cdn-cache;desc=MISS,edge;dur=6,origin;dur=48",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e2004284111a904fa1aee74fa798026425785aa94964997207467c5fc05e3489dbe2e994c36d22a286a70a5e97946c50744fde169e5866b15859b8e0f9e5127495970a4b02dab45ceb12481966361020adc",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.686",
+    "Content-Encoding": "br",
+    "Via": "cache55.l2et15-7[48,0], ens-cache31.cn6011[54,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165666483803e"
+}
+cookies  : {}
+encoding : UTF-8
+content_type : application/json;charset=UTF-8
+body     : {
+    "code": 0,
+    "data": {
+        "folder": {
+            "id": "7TodknZ3XSw",
+            "folderId": "0",
+            "name": "hogwarts-demo",
+            "userId": 25476480,
+            "createTime": 1691216566680,
+            "updateTime": 1691216566680,
+            "deleted": 0,
+            "deleteTime": 0,
+            "version": 1691216566680,
+            "commitClient": "web",
+            "encrypted": 0,
+            "stared": 0,
+            "starIndex": 0,
+            "bgImgId": 0,
+            "metaVersion": 1691216566680,
+            "folderType": 0
+        }
+    }
+}
+
+2023-08-05 14:22:47.474 | INFO | status_code: 200, response_time(ms): 215.99 ms, response_length: 0 bytes
+2023-08-05 14:22:47.475 | DEBUG | ====== response details ======
+status_code: 200
+headers: {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9454",
+    "X-Tt-Logid": "202308051422463917B994211C488DEA51",
+    "X-Agw-Info": "FgeRFO_k5aiKyYE3u-qE_RxvuNFic2qyhbjPsMzo5qK-JViRrQpVgCadYQv8yyVi8TlBvhAv7EJyx51r8UBM5FNqu98GdorHIuNUy-urgtryNiRkcfdGPPZsCPKYieJxZfSY35MZm0zsScSvIDs-vty9IBoQYTBBSzqf",
+    "Server-Timing": "inner; dur=22, tt_agw; dur=19, cdn-cache;desc=MISS,edge;dur=6,origin;dur=48",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e2004284111a904fa1aee74fa798026425785aa94964997207467c5fc05e3489dbe2e994c36d22a286a70a5e97946c50744fde169e5866b15859b8e0f9e5127495970a4b02dab45ceb12481966361020adc",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.686",
+    "Content-Encoding": "br",
+    "Via": "cache55.l2et15-7[48,0], ens-cache31.cn6011[54,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165666483803e"
+}
+body: {
+    "code": 0,
+    "data": {
+        "folder": {
+            "id": "7TodknZ3XSw",
+            "folderId": "0",
+            "name": "hogwarts-demo",
+            "userId": 25476480,
+            "createTime": 1691216566680,
+            "updateTime": 1691216566680,
+            "deleted": 0,
+            "deleteTime": 0,
+            "version": 1691216566680,
+            "commitClient": "web",
+            "encrypted": 0,
+            "stared": 0,
+            "starIndex": 0,
+            "bgImgId": 0,
+            "metaVersion": 1691216566680,
+            "folderType": 0
+        }
+    }
+}
+
+2023-08-05 14:22:47.475 | INFO | assert status_code equal 200(int)	==> pass
+2023-08-05 14:22:47.476 | INFO | assert body.code equal 0(int)	==> pass
+2023-08-05 14:22:47.477 | INFO | run step end: /v3/api/list/create_folder <<<<<<
+
+2023-08-05 14:22:47.478 | INFO | run step begin: /v3/api/notify/new_tip/get >>>>>>
+2023-08-05 14:22:47.479 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/notify/new_tip/get
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "7dd73e10-88ac-4ca9-8f60-d412d9aea0ea",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567479"
+}
+json: {
+    "type": 1
+}
+
+2023-08-05 14:22:47.570 | DEBUG | client IP: 10.99.54.172, Port: 57577
+2023-08-05 14:22:47.570 | DEBUG | server IP: 61.170.79.237, Port: 443
+2023-08-05 14:22:47.571 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/notify/new_tip/get
+headers  : {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "7dd73e10-88ac-4ca9-8f60-d412d9aea0ea",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567479",
+    "Content-Length": "11"
+}
+cookies  : {}
+body     : {
+    "type": 1
+}
+
+2023-08-05 14:22:47.583 | DEBUG | 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9360",
+    "X-Tt-Logid": "202308051422466BD54468875E549B3185",
+    "X-Agw-Info": "9lOTfEWCQEYEw1UKZEP4xWCD3w-Dd0z98RARPYCAOWY70BI9pkIOMfU7EPVjicxWBAMjUGW_gs-7dTm5RukSeiH5vs3QVz31fke-K06twg44flT531OnD1UtO1gf0C4ZSVX_NychTPTwWTf_JlnEx9Cfk_PmV542-k9I",
+    "Server-Timing": "inner; dur=38, tt_agw; dur=32, cdn-cache;desc=MISS,edge;dur=8,origin;dur=68",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e20d663c9998ac46b028f273e0bbd19aeb5bd272578766edd5e02ccf392a5414e8521d585a8bd7fb1fe1fbff395747506ea4d2f58fe9c462a547ed6b5e1b62c5717fbf18bc2ccf6192f221b20a451932089",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.793",
+    "Content-Encoding": "br",
+    "Via": "cache57.l2et15-7[68,0], ens-cache31.cn6011[76,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165667344349e"
+}
+cookies  : {}
+encoding : UTF-8
+content_type : application/json;charset=UTF-8
+body     : {
+    "code": 0,
+    "data": {
+        "tip": null
+    }
+}
+
+2023-08-05 14:22:47.583 | INFO | status_code: 200, response_time(ms): 90.61 ms, response_length: 0 bytes
+2023-08-05 14:22:47.584 | DEBUG | ====== response details ======
+status_code: 200
+headers: {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9360",
+    "X-Tt-Logid": "202308051422466BD54468875E549B3185",
+    "X-Agw-Info": "9lOTfEWCQEYEw1UKZEP4xWCD3w-Dd0z98RARPYCAOWY70BI9pkIOMfU7EPVjicxWBAMjUGW_gs-7dTm5RukSeiH5vs3QVz31fke-K06twg44flT531OnD1UtO1gf0C4ZSVX_NychTPTwWTf_JlnEx9Cfk_PmV542-k9I",
+    "Server-Timing": "inner; dur=38, tt_agw; dur=32, cdn-cache;desc=MISS,edge;dur=8,origin;dur=68",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e20d663c9998ac46b028f273e0bbd19aeb5bd272578766edd5e02ccf392a5414e8521d585a8bd7fb1fe1fbff395747506ea4d2f58fe9c462a547ed6b5e1b62c5717fbf18bc2ccf6192f221b20a451932089",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.793",
+    "Content-Encoding": "br",
+    "Via": "cache57.l2et15-7[68,0], ens-cache31.cn6011[76,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165667344349e"
+}
+body: {
+    "code": 0,
+    "data": {
+        "tip": null
+    }
+}
+
+2023-08-05 14:22:47.584 | INFO | assert status_code equal 200(int)	==> pass
+2023-08-05 14:22:47.585 | INFO | assert body.code equal 0(int)	==> pass
+2023-08-05 14:22:47.585 | INFO | run step end: /v3/api/notify/new_tip/get <<<<<<
+
+2023-08-05 14:22:47.586 | INFO | run step begin: /v3/api/list/item_count >>>>>>
+2023-08-05 14:22:47.587 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/list/item_count
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "f19b9cd1-599c-474c-8f9e-1180a7012e85",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567587"
+}
+json: {
+    "folderId": "qTCe1qAiyw",
+    "source": "home"
+}
+
+2023-08-05 14:22:47.653 | DEBUG | client IP: 10.99.54.172, Port: 57577
+2023-08-05 14:22:47.653 | DEBUG | server IP: 61.170.79.237, Port: 443
+2023-08-05 14:22:47.653 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/list/item_count
+headers  : {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "f19b9cd1-599c-474c-8f9e-1180a7012e85",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567587",
+    "Content-Length": "44"
+}
+cookies  : {}
+body     : {
+    "folderId": "qTCe1qAiyw",
+    "source": "home"
+}
+
+2023-08-05 14:22:47.664 | DEBUG | 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9454",
+    "X-Tt-Logid": "202308051422463917B994211C488DEA68",
+    "X-Agw-Info": "HZGgdPR_7d-mWtPyMd4-7vzt1E2W1hjM3-DfOS4axjH0MK98YZCEwGmog8_OyUK4ZPu38F34vzi-DgcCrQ5EH8JSMjJhoqXmJQO9xq3ZOC8EfjXxwvE-yU6MhOSQZ26zqAx7vzR1VfLh6Gm9yVcSQUVDFyG154jP1bWT",
+    "Server-Timing": "inner; dur=20, tt_agw; dur=16, cdn-cache;desc=MISS,edge;dur=4,origin;dur=46",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e2004284111a904fa1aee74fa798026425785aa94964997207467c5fc05e3489dbe2e994c36d22a286a70a5e97946c50744fde169e5866b15859b8e0f9e5127495970a4b02dab45ceb12481966361020adc",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.875",
+    "Content-Encoding": "br",
+    "Via": "cache55.l2et15-7[46,0], ens-cache31.cn6011[50,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165668404856e"
+}
+cookies  : {}
+encoding : UTF-8
+content_type : application/json;charset=UTF-8
+body     : {
+    "code": 0,
+    "data": {
+        "folder": {},
+        "doc": {}
+    }
+}
+
+2023-08-05 14:22:47.664 | INFO | status_code: 200, response_time(ms): 65.98 ms, response_length: 0 bytes
+2023-08-05 14:22:47.667 | DEBUG | ====== response details ======
+status_code: 200
+headers: {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9454",
+    "X-Tt-Logid": "202308051422463917B994211C488DEA68",
+    "X-Agw-Info": "HZGgdPR_7d-mWtPyMd4-7vzt1E2W1hjM3-DfOS4axjH0MK98YZCEwGmog8_OyUK4ZPu38F34vzi-DgcCrQ5EH8JSMjJhoqXmJQO9xq3ZOC8EfjXxwvE-yU6MhOSQZ26zqAx7vzR1VfLh6Gm9yVcSQUVDFyG154jP1bWT",
+    "Server-Timing": "inner; dur=20, tt_agw; dur=16, cdn-cache;desc=MISS,edge;dur=4,origin;dur=46",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e2004284111a904fa1aee74fa798026425785aa94964997207467c5fc05e3489dbe2e994c36d22a286a70a5e97946c50744fde169e5866b15859b8e0f9e5127495970a4b02dab45ceb12481966361020adc",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.875",
+    "Content-Encoding": "br",
+    "Via": "cache55.l2et15-7[46,0], ens-cache31.cn6011[50,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165668404856e"
+}
+body: {
+    "code": 0,
+    "data": {
+        "folder": {},
+        "doc": {}
+    }
+}
+
+2023-08-05 14:22:47.667 | INFO | assert status_code equal 200(int)	==> pass
+2023-08-05 14:22:47.668 | INFO | assert body.code equal 0(int)	==> pass
+2023-08-05 14:22:47.669 | INFO | run step end: /v3/api/list/item_count <<<<<<
+
+2023-08-05 14:22:47.670 | INFO | run step begin: /v3/api/list/create_doc >>>>>>
+2023-08-05 14:22:47.671 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/list/create_doc
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "f76ebbbd-a49d-441c-bd03-d4949a2da21b",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567671"
+}
+json: {
+    "folderId": "qTCe1qAiyw",
+    "type": 0
+}
+
+2023-08-05 14:22:47.775 | DEBUG | client IP: 10.99.54.172, Port: 57577
+2023-08-05 14:22:47.775 | DEBUG | server IP: 61.170.79.237, Port: 443
+2023-08-05 14:22:47.776 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/list/create_doc
+headers  : {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "f76ebbbd-a49d-441c-bd03-d4949a2da21b",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567671",
+    "Content-Length": "37"
+}
+cookies  : {}
+body     : {
+    "folderId": "qTCe1qAiyw",
+    "type": 0
+}
+
+2023-08-05 14:22:47.786 | DEBUG | 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9359",
+    "X-Tt-Logid": "202308051422465CF94838244EE99CEF4F",
+    "X-Agw-Info": "gIb87qwtpDziHVZqTKKrFkWV3xFXBj3cbisTiZtyeoU66JMkq3keqOPRNgdiHnDPGCqhD4zFdy75HI6feWRAlu8zN8aY_CUyEoo4oT9H_TXgKRMO_IG7zytcje7-IQJYaPjl3udCZqqTkGo4RRrqfVVvEdvnLJ8yRPXe",
+    "Server-Timing": "inner; dur=49, tt_agw; dur=46, cdn-cache;desc=MISS,edge;dur=36,origin;dur=53",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e20970a0b767ff57df05260e39cd977ca9b3dbf7d7e56e1c910a14190518470fa262f8404b3aa01cb2824c282155b9c41f687df4539ca7631084b1abaa35b5d5cf8bd4a11209f69b8c6bd8320ff1e1e396f",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.992",
+    "Content-Encoding": "br",
+    "Via": "cache60.l2na63-1[53,0], ens-cache31.cn6011[89,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165669245223e"
+}
+cookies  : {}
+encoding : UTF-8
+content_type : application/json;charset=UTF-8
+body     : {
+    "code": 0,
+    "data": {
+        "id": "7i44KZj2PSw"
+    }
+}
+
+2023-08-05 14:22:47.786 | INFO | status_code: 200, response_time(ms): 103.47 ms, response_length: 0 bytes
+2023-08-05 14:22:47.788 | DEBUG | ====== response details ======
+status_code: 200
+headers: {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:46 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9359",
+    "X-Tt-Logid": "202308051422465CF94838244EE99CEF4F",
+    "X-Agw-Info": "gIb87qwtpDziHVZqTKKrFkWV3xFXBj3cbisTiZtyeoU66JMkq3keqOPRNgdiHnDPGCqhD4zFdy75HI6feWRAlu8zN8aY_CUyEoo4oT9H_TXgKRMO_IG7zytcje7-IQJYaPjl3udCZqqTkGo4RRrqfVVvEdvnLJ8yRPXe",
+    "Server-Timing": "inner; dur=49, tt_agw; dur=46, cdn-cache;desc=MISS,edge;dur=36,origin;dur=53",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e20970a0b767ff57df05260e39cd977ca9b3dbf7d7e56e1c910a14190518470fa262f8404b3aa01cb2824c282155b9c41f687df4539ca7631084b1abaa35b5d5cf8bd4a11209f69b8c6bd8320ff1e1e396f",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216566.992",
+    "Content-Encoding": "br",
+    "Via": "cache60.l2na63-1[53,0], ens-cache31.cn6011[89,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165669245223e"
+}
+body: {
+    "code": 0,
+    "data": {
+        "id": "7i44KZj2PSw"
+    }
+}
+
+2023-08-05 14:22:47.789 | INFO | assert status_code equal 200(int)	==> pass
+2023-08-05 14:22:47.789 | INFO | assert body.code equal 0(int)	==> pass
+2023-08-05 14:22:47.790 | INFO | run step end: /v3/api/list/create_doc <<<<<<
+
+2023-08-05 14:22:47.791 | INFO | run step begin: /v3/api/list/item_count >>>>>>
+2023-08-05 14:22:47.792 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/list/item_count
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "b30c0577-51d2-4e43-9ad4-1d765edcb716",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567792"
+}
+json: {
+    "folderId": 0,
+    "source": "home"
+}
+
+2023-08-05 14:22:47.860 | DEBUG | client IP: 10.99.54.172, Port: 57577
+2023-08-05 14:22:47.860 | DEBUG | server IP: 61.170.79.237, Port: 443
+2023-08-05 14:22:47.861 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/list/item_count
+headers  : {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "b30c0577-51d2-4e43-9ad4-1d765edcb716",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567792",
+    "Content-Length": "33"
+}
+cookies  : {}
+body     : {
+    "folderId": 0,
+    "source": "home"
+}
+
+2023-08-05 14:22:47.874 | DEBUG | 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:47 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9330",
+    "X-Tt-Logid": "2023080514224745748BD3CCF13B8F7018",
+    "X-Agw-Info": "l6UU8P2t8IZAUE1jRLd2cNlpLWObeSr2JrOoUSXbbuloDYOBPLyTl4bam_DCACgqrcVTKDFJ0KQTav9QkckeFJmTISo5NGhf6qmG91TD052bs_Dfdc7Lx9-B2lBq9V7j3SD0wH0S69lsGz4btvffO4O5QyRtdCoVD-o=",
+    "Server-Timing": "inner; dur=20, tt_agw; dur=16, cdn-cache;desc=MISS,edge;dur=6,origin;dur=49",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e204d8bbb771827965de4b2c6af41a82c4751fa8f6357b605ff9edaaeca4bcf54a6f8223c6cab7673dfbf521621a3447105eb865d883328723566e59c8c70a049201f6708b84be1bfe55dcc71d8c2eee203",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216567.087",
+    "Content-Encoding": "br",
+    "Via": "cache17.l2et2[49,0], ens-cache31.cn6011[55,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165670465872e"
+}
+cookies  : {}
+encoding : UTF-8
+content_type : application/json;charset=UTF-8
+body     : {
+    "code": 0,
+    "data": {
+        "folder": {},
+        "doc": {
+            "1H3wmUlpNbg~0": 72,
+            "3LO2Qcfn9bg~0": 8
+        }
+    }
+}
+
+2023-08-05 14:22:47.875 | INFO | status_code: 200, response_time(ms): 67.73 ms, response_length: 0 bytes
+2023-08-05 14:22:47.876 | DEBUG | ====== response details ======
+status_code: 200
+headers: {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:47 GMT",
+    "Vary": "Accept-Encoding",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9330",
+    "X-Tt-Logid": "2023080514224745748BD3CCF13B8F7018",
+    "X-Agw-Info": "l6UU8P2t8IZAUE1jRLd2cNlpLWObeSr2JrOoUSXbbuloDYOBPLyTl4bam_DCACgqrcVTKDFJ0KQTav9QkckeFJmTISo5NGhf6qmG91TD052bs_Dfdc7Lx9-B2lBq9V7j3SD0wH0S69lsGz4btvffO4O5QyRtdCoVD-o=",
+    "Server-Timing": "inner; dur=20, tt_agw; dur=16, cdn-cache;desc=MISS,edge;dur=6,origin;dur=49",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e204d8bbb771827965de4b2c6af41a82c4751fa8f6357b605ff9edaaeca4bcf54a6f8223c6cab7673dfbf521621a3447105eb865d883328723566e59c8c70a049201f6708b84be1bfe55dcc71d8c2eee203",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216567.087",
+    "Content-Encoding": "br",
+    "Via": "cache17.l2et2[49,0], ens-cache31.cn6011[55,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165670465872e"
+}
+body: {
+    "code": 0,
+    "data": {
+        "folder": {},
+        "doc": {
+            "1H3wmUlpNbg~0": 72,
+            "3LO2Qcfn9bg~0": 8
+        }
+    }
+}
+
+2023-08-05 14:22:47.876 | INFO | assert status_code equal 200(int)	==> pass
+2023-08-05 14:22:47.877 | INFO | assert body.code equal 0(int)	==> pass
+2023-08-05 14:22:47.879 | INFO | run step end: /v3/api/list/item_count <<<<<<
+
+2023-08-05 14:22:47.880 | INFO | run step begin: /v3/api/document/edit/get >>>>>>
+2023-08-05 14:22:47.881 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/document/edit/get
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "f5905718-1a37-4ae4-8d9c-ec4cba6fde31",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567880"
+}
+json: {
+    "docId": "4W500-RbPyw",
+    "password": ""
+}
+
+2023-08-05 14:22:47.966 | DEBUG | client IP: 10.99.54.172, Port: 57577
+2023-08-05 14:22:47.966 | DEBUG | server IP: 61.170.79.237, Port: 443
+2023-08-05 14:22:47.967 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/document/edit/get
+headers  : {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+    "x-request-id": "f5905718-1a37-4ae4-8d9c-ec4cba6fde31",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-47ae89ad-0d5c-48c3-8032-7ebb996ff92c-567880",
+    "Content-Length": "40"
+}
+cookies  : {}
+body     : {
+    "docId": "4W500-RbPyw",
+    "password": ""
+}
+
+2023-08-05 14:22:47.967 | DEBUG | 
+================== response details ==================
+status_code : 200
+headers  : {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Content-Length": "40",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:47 GMT",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9261",
+    "X-Tt-Logid": "202308051422476BD54468875E549B31CB",
+    "X-Agw-Info": "o6a6eukb0QBnj__uA8iPghZrIu4FZpfvX_v-3NyUYDD558tYFaPnpiU1ff567fCCIgw8spUmtQzfpAwJP9nmV91V2Wgr9EYwvT5lR3CqloIKM0YXwsU8j7ijPNgXbbZPhy0dIFf4aYsg1iMZCo_YJjCD8Pg1he4IW44r",
+    "Server-Timing": "inner; dur=25, tt_agw; dur=19, cdn-cache;desc=MISS,edge;dur=10,origin;dur=54",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e20d663c9998ac46b028f273e0bbd19aeb5bd272578766edd5e02ccf392a5414e8521d585a8bd7fb1fe1fbff395747506ea067391d168b8addc357129806c92246ca51ec37a99d9a394ab6d3c6156845201",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216567.180",
+    "Via": "cache57.l2et15-7[54,0], ens-cache31.cn6011[64,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165671336334e"
+}
+cookies  : {}
+encoding : UTF-8
+content_type : application/json;charset=UTF-8
+body     : {
+    "code": 16,
+    "msg": "25476480:4W500-RbPyw"
+}
+
+2023-08-05 14:22:47.968 | INFO | status_code: 200, response_time(ms): 84.68 ms, response_length: 0 bytes
+2023-08-05 14:22:47.969 | DEBUG | ====== response details ======
+status_code: 200
+headers: {
+    "Server": "Tengine",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Content-Length": "40",
+    "Connection": "keep-alive",
+    "Date": "Sat, 05 Aug 2023 06:22:47 GMT",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST,GET,OPTIONS,DELETE,HEAD,PUT",
+    "Access-Control-Max-Age": "86400",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "X-request-Id,x-requested-with,jwt-token,request-id,member-id,Content-Type,X-FILENAME,data-unique-id,AB-Server-Version,Device-Id,token,Channel-Id,channel,system,platform,Channel-Name,version,mubu-app,mubu-desktop,Checksum,user-agent,Origin,Accept",
+    "X-Application-Context": "mubu.biz.openapi:online.cn:9261",
+    "X-Tt-Logid": "202308051422476BD54468875E549B31CB",
+    "X-Agw-Info": "o6a6eukb0QBnj__uA8iPghZrIu4FZpfvX_v-3NyUYDD558tYFaPnpiU1ff567fCCIgw8spUmtQzfpAwJP9nmV91V2Wgr9EYwvT5lR3CqloIKM0YXwsU8j7ijPNgXbbZPhy0dIFf4aYsg1iMZCo_YJjCD8Pg1he4IW44r",
+    "Server-Timing": "inner; dur=25, tt_agw; dur=19, cdn-cache;desc=MISS,edge;dur=10,origin;dur=54",
+    "x-tt-trace-host": "01da5ad5b79ade11eaceffd0dd41ba6e20d663c9998ac46b028f273e0bbd19aeb5bd272578766edd5e02ccf392a5414e8521d585a8bd7fb1fe1fbff395747506ea067391d168b8addc357129806c92246ca51ec37a99d9a394ab6d3c6156845201",
+    "x-tt-trace-tag": "id=03;cdn-cache=miss;type=dyn",
+    "X-TT-TIMESTAMP": "1691216567.180",
+    "Via": "cache57.l2et15-7[54,0], ens-cache31.cn6011[64,0]",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "3daa4f3316912165671336334e"
+}
+body: {
+    "code": 16,
+    "msg": "25476480:4W500-RbPyw"
+}
+
+2023-08-05 14:22:47.969 | INFO | assert status_code equal 200(int)	==> pass
+2023-08-05 14:22:47.970 | ERROR | assert body.code equal 0(int)	==> fail
+check_item: body.code
+check_value: 16(int)
+assert_method: equal
+expect_value: 0(int)
+2023-08-05 14:22:47.972 | INFO | generate testcase log: F:\pythonȫջ\pythonProject\mubuProject\logs\47ae89ad-0d5c-48c3-8032-7ebb996ff92c.run.log
