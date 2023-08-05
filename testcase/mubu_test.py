@@ -17,6 +17,11 @@ class TestCaseMubu(HttpRunner):
     teststeps = [
         Step(
             RunRequest("/v3/api/user/phone_login")
+            .with_variables(**{
+                "phone": "18245297665",
+                "password": "123456lwj",
+                "callbackType": 0
+            })
                 .post("/v3/api/user/phone_login")
                 .with_headers(
                 **{
@@ -35,7 +40,7 @@ class TestCaseMubu(HttpRunner):
                 }
             )
             .with_json(
-                {"phone": "18245297665", "password": "123456lwj", "callbackType": 0}
+                {"phone": "$phone", "password": "$password", "callbackType": "$callbackType"}
             )
             .extract()
             # .with_jmespath("body.data.token", "jwt-token")
@@ -89,6 +94,7 @@ class TestCaseMubu(HttpRunner):
                 }
             )
             .with_json({"name": "hogwarts-demo", "folderId": "0"})
+            .teardown_hook("${sleep(5)}")
             .extract()
             .with_jmespath("body.data.folder.id", "folderId")
             .validate()
