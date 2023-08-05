@@ -1,0 +1,67 @@
+2023-08-05 13:35:33.201 | INFO | run step begin: /v3/api/user/phone_login >>>>>>
+2023-08-05 13:35:33.202 | DEBUG | ====== request details ======
+url: https://api2.mubu.com/v3/api/user/phone_login
+method: POST
+params: {}
+data: None
+cookies: {}
+timeout: 120
+allow_redirects: True
+verify: False
+headers: {
+    "sec-ch-ua": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\"",
+    "version": "3.0.0-2.0.0.1934",
+    "sec-ch-ua-mobile": "?0",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+    "content-type": "application/json;charset=UTF-8",
+    "jwt-token": "",
+    "x-request-id": "cc7462fa-fda8-4d28-a9c5-f022824c3cf2",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-site": "same-site",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-dest": "empty",
+    "HRUN-Request-ID": "HRUN-78d4bfbe-6e34-4a83-a2e5-7545bf3f5da2-733202"
+}
+json: {
+    "phone": "18245297665",
+    "password": "123456lwj",
+    "callbackType": 0
+}
+
+2023-08-05 13:35:33.224 | DEBUG | 
+================== request details ==================
+method   : POST
+url      : https://api2.mubu.com/v3/api/user/phone_login
+headers  : {
+    "Content-Length": "0"
+}
+cookies  : {}
+body     : None
+
+2023-08-05 13:35:33.225 | DEBUG | 
+================== response details ==================
+status_code : 0
+headers  : {}
+cookies  : {}
+encoding : None
+content_type : 
+body     : 
+
+2023-08-05 13:35:33.225 | ERROR | HTTPSConnectionPool(host='api2.mubu.com', port=443): Max retries exceeded with url: /v3/api/user/phone_login (Caused by ProxyError('Unable to connect to proxy', FileNotFoundError(2, 'No such file or directory')))
+2023-08-05 13:35:33.228 | DEBUG | ====== response details ======
+status_code: 0
+headers: {}
+body: None
+
+2023-08-05 13:35:33.228 | ERROR | assert status_code equal 200(int)	==> fail
+check_item: status_code
+check_value: 0(int)
+assert_method: equal
+expect_value: 200(int)
+2023-08-05 13:35:33.229 | ERROR | assert body.code equal 0(int)	==> fail
+check_item: body.code
+check_value: None(NoneType)
+assert_method: equal
+expect_value: 0(int)
+2023-08-05 13:35:33.230 | INFO | generate testcase log: F:\pythonȫջ\pythonProject\mubuProject\logs\78d4bfbe-6e34-4a83-a2e5-7545bf3f5da2.run.log
