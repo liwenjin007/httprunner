@@ -71,7 +71,8 @@ class TestCaseMubuLogin(HttpRunner):
                 .validate()
                 .assert_equal("status_code", 200)
                 .assert_equal("body.code", 0)
-        ), Step(
+        ),
+        Step(
             RunRequest("/v3/api/user/get_user_params")
                 .post("https://api2.mubu.com/v3/api/user/get_user_params")
                 .with_headers(

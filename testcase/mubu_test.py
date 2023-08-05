@@ -5,14 +5,19 @@ from httprunner import HttpRunner, Config, Step, RunRequest
 
 class TestCaseMubu(HttpRunner):
 
-    config = Config("testcase description").verify(False).variables(**{
+    config = (Config("testcase description")
+        .base_url("https://api2.$host")
+        .verify(False)
+        .variables(**{
         "data_unique_id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
-    })
+        "memberId": "4441534322996672",
+        "host":"${get_test_env()}"
+    }))
 
     teststeps = [
         Step(
             RunRequest("/v3/api/user/phone_login")
-                .post("https://api2.mubu.com/v3/api/user/phone_login")
+                .post("/v3/api/user/phone_login")
                 .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -40,8 +45,33 @@ class TestCaseMubu(HttpRunner):
             .assert_equal("body.code", 0)
         ),
         Step(
+            RunRequest("/v3/api/user/profile")
+                .post("/v3/api/user/profile")
+                .with_headers(
+                **{
+                    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+                    "sec-ch-ua-platform": '"Windows"',
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+                    "data-unique-id": "deead2a0-bd7b-4432-9632-3d1dd82cb940",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMjU0NzY0ODAiLCJsb2dpblR5cGUiOiJtb2JpbGUiLCJleHAiOjE2OTM4MDU4MTksImlhdCI6MTY5MTIxMzgxOX0.H6jQIQpNU3m0xSvNJ79XwEGuobUR1L125c9bGg8LPgKo2NebAAWE2RrB5iCwE2-iO5fMf0LLlWHteh0g39x5Uw",
+                    "x-request-id": "8ade82b2-2cc7-4074-b5c2-fbc4c2d667cf",
+                    "version": "3.0.0-2.0.0.1934",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                }
+            )
+            .with_data("")
+            .extract()
+            .with_jmespath("body.data.id", "user_id")
+            .validate()
+            .assert_equal("status_code", 200)
+            .assert_equal("body.code", 0)
+        ),
+        Step(
             RunRequest("/v3/api/list/create_folder")
-            .post("https://api2.mubu.com/v3/api/list/create_folder")
+            .post("/v3/api/list/create_folder")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -67,7 +97,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/item_count")
-            .post("https://api2.mubu.com/v3/api/list/item_count")
+            .post("/v3/api/list/item_count")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -91,7 +121,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/create_doc")
-            .post("https://api2.mubu.com/v3/api/list/create_doc")
+            .post("/v3/api/list/create_doc")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -117,7 +147,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/document/edit/get")
-            .post("https://api2.mubu.com/v3/api/document/edit/get")
+            .post("/v3/api/document/edit/get")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -141,7 +171,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/register")
-            .get("https://api2.mubu.com/v3/api/colla/register")
+            .get("/v3/api/colla/register")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -162,7 +192,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -182,7 +212,7 @@ class TestCaseMubu(HttpRunner):
                 {
                     "reqId": "1",
                     "type": "USER_HEARTBEAT",
-                    "memberId": "4441534322996672",
+                    "memberId": "$memberId",
                     "documentId": "$documentId",
                 }
             )
@@ -192,7 +222,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/doc/list")
-            .post("https://api2.mubu.com/v3/api/refer/doc/list")
+            .post("/v3/api/refer/doc/list")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -215,7 +245,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/node/count")
-            .post("https://api2.mubu.com/v3/api/refer/node/count")
+            .post("/v3/api/refer/node/count")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -239,7 +269,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/members_v2")
-            .post("https://api2.mubu.com/v3/api/colla/members_v2")
+            .post("/v3/api/colla/members_v2")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -248,7 +278,7 @@ class TestCaseMubu(HttpRunner):
                     "data-unique-id": "$data_unique_id",
                     "content-type": "application/json;charset=UTF-8",
                     "jwt-token": "$jwt_token",
-                    "request-id": "members:4441534322996672:1691213839731",
+                    "request-id": "members:${memberId}:${user_id}",
                     "x-request-id": "${gen_random_request_id()}",
                     "sec-ch-ua-platform": '"Windows"',
                     "sec-fetch-site": "same-site",
@@ -256,14 +286,14 @@ class TestCaseMubu(HttpRunner):
                     "sec-fetch-dest": "empty",
                 }
             )
-            .with_json({"memberId": "4441534322996672", "documentId": "$documentId"})
+            .with_json({"memberId": "$memberId", "documentId": "$documentId"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -281,7 +311,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_json(
                 {
-                    "memberId": "4441534322996672",
+                    "memberId": "$memberId",
                     "type": "CHANGE",
                     "version": 0,
                     "documentId": "$documentId",
@@ -299,7 +329,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/search_refers")
-            .post("https://api2.mubu.com/v3/api/refer/search_refers")
+            .post("/v3/api/refer/search_refers")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -322,7 +352,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -340,7 +370,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_json(
                 {
-                    "memberId": "4441534322996672",
+                    "memberId": "$memberId",
                     "type": "CHANGE",
                     "version": 1,
                     "documentId": "$documentId",
@@ -370,7 +400,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -388,7 +418,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_json(
                 {
-                    "memberId": "4441534322996672",
+                    "memberId": "$memberId",
                     "type": "CHANGE",
                     "version": 2,
                     "documentId": "$documentId",
@@ -420,7 +450,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -438,7 +468,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_json(
                 {
-                    "memberId": "4441534322996672",
+                    "memberId": "$memberId",
                     "type": "CHANGE",
                     "version": 3,
                     "documentId": "$documentId",
@@ -470,7 +500,7 @@ class TestCaseMubu(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
@@ -488,7 +518,7 @@ class TestCaseMubu(HttpRunner):
             )
             .with_json(
                 {
-                    "memberId": "4441534322996672",
+                    "memberId": "$memberId",
                     "type": "CHANGE",
                     "version": 4,
                     "documentId": "$documentId",
