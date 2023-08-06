@@ -22,5 +22,8 @@ def get_test_env():
 def get_response(resp:ResponseObject):
     print(f"resp______")
     resp = resp.resp_obj.json()
-    print(resp["data"])
-    return resp["data"]["phone"]
+    return resp.resp_obj.json()
+
+
+def get_member_list():
+    return [4441534322996672, 4441534322996671]
